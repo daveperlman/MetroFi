@@ -40,6 +40,7 @@ var app = {
         alert(error);
     },
     onNotificationGCM: function(e) {
+        alert("notified");
         switch( e.event )
         {
             case 'registered':
