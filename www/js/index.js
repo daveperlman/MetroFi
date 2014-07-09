@@ -36,13 +36,13 @@ var app = {
     },
     // result contains any message sent from the plugin call
     successHandler: function(result) {
-        alert('Callback Success! Result = '+result)
+        //alert('Callback Success! Result = '+result)
     },
     errorHandler:function(error) {
         alert(error);
     },
     onNotificationGCM: function(e) {
-        alert("notified");
+        //alert("notified");
         switch( e.event )
         {
             case 'registered':
@@ -50,7 +50,12 @@ var app = {
                 {
                     console.log("Regid " + e.regid);
                     //alert('registration id = '+e.regid);
-                    $("#message_container").append("<br>"+e.regid)
+                    $("#message_container").append("<br>"+e.regid);
+                    var _params = {};
+                    _params.deviceid = e.regid;
+                    $.getJSON("",_params,function(){
+                        alert("Registerd on MetroFi server.")
+                    });
                 }
 
 
