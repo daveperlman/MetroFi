@@ -69,7 +69,7 @@ var app = {
     
     startTimer: function() {
          var now = new Date().getTime();
-         var _10_seconds_from_now = new Date(now + 60*1000);
+         var _10_seconds_from_now = new Date(now + 10*1000);
 
          window.plugin.notification.local.add({
               id:      1,
