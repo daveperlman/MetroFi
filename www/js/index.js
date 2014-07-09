@@ -19,7 +19,7 @@ var app = {
         app.receivedEvent('deviceready');
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,   {"senderID":"338635639573","ecb":"app.onNotificationGCM"});
-
+        app.startTimer();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -64,6 +64,10 @@ var app = {
                 alert('An unknown GCM event has occurred');
                 break;
         }
+    },
+    
+    startTimer: function() {
+         alert("Timer..."); 
     }
-
+    
 };
