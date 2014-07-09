@@ -67,7 +67,7 @@ var app = {
     },
     
     startTimer: function() {
-         alert("Timer..."); 
+         setInterval(alert("Timer..."),30000); 
     }
     
 };
