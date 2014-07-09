@@ -19,7 +19,7 @@ var app = {
         //app.receivedEvent('deviceready');
         //var pushNotification = window.plugins.pushNotification;
         //pushNotification.register(app.successHandler, app.errorHandler,   {"senderID":"338635639573","ecb":"app.onNotificationGCM"});
-        setInterval(app.startTimer,10000);
+       app.startTimer();
         alert("timer started");
     },
     // Update DOM on a Received Event
@@ -68,7 +68,17 @@ var app = {
     },
     
     startTimer: function() {
-         alert("Timer..."); 
+         var now = new Date().getTime();
+         var _10_seconds_from_now = new Date(now + 60*1000);
+
+         window.plugin.notification.local.add({
+              id:      1,
+              title:   'Reminder',
+              message: 'Dont forget to buy some flowers.',
+              repeat:  'minutely',
+              date:    _60_seconds_from_now
+         });
+         
     }
     
 };
