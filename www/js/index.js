@@ -21,6 +21,7 @@ var app = {
         pushNotification.register(app.successHandler, app.errorHandler,   {"senderID":"338635639573","ecb":"app.onNotificationGCM"});
        //app.startTimer();
        //alert("timer started");
+       $("#message_container").html(START LISTING MESSAGES);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -48,7 +49,8 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
-                    alert('registration id = '+e.regid);
+                    //alert('registration id = '+e.regid);
+                    $("#message_container").append("<br>"+e.regid)
                 }
 
 
