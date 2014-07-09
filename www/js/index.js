@@ -16,10 +16,10 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        //app.receivedEvent('deviceready');
-        //var pushNotification = window.plugins.pushNotification;
-        //pushNotification.register(app.successHandler, app.errorHandler,   {"senderID":"338635639573","ecb":"app.onNotificationGCM"});
-       app.startTimer();
+        app.receivedEvent('deviceready');
+        var pushNotification = window.plugins.pushNotification;
+        pushNotification.register(app.successHandler, app.errorHandler,   {"senderID":"338635639573","ecb":"app.onNotificationGCM"});
+       //app.startTimer();
        //alert("timer started");
     },
     // Update DOM on a Received Event
@@ -50,6 +50,8 @@ var app = {
                     console.log("Regid " + e.regid);
                     alert('registration id = '+e.regid);
                 }
+
+
                 break;
 
             case 'message':
