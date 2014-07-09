@@ -79,6 +79,14 @@ var app = {
               date:    _10_seconds_from_now
          });
          
+         window.plugin.notification.local.ontrigger = function (id, state, json) {
+              navigator.notification.alert(
+                  'You are the winner!',  // message
+                  alertDismissed,         // callback
+                 'Game Over',            // title
+                 'Done'                  // buttonName
+              );
+         };
     }
     
 };
