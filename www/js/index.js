@@ -76,7 +76,7 @@ var app = {
               title:   'Reminder',
               message: 'Dont forget to buy some flowers.',
               repeat:  'minutely',
-              date:    _60_seconds_from_now
+              date:    _10_seconds_from_now
          });
          
     }
