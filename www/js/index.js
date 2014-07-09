@@ -63,7 +63,13 @@ var app = {
 
             case 'message':
                 // this is the actual push notification. its format depends on the data model from the push server
-                alert('message = '+e.message+' msgcnt = '+e.msgcnt);
+                $("#message_container").append(e.msg);
+                navigator.notification.alert(
+                    'Test Alert on Device Ready!', 
+                    alertDismissed,  
+                   'Testing',  
+                   'Ok'          
+                );
                 break;
 
             case 'error':
