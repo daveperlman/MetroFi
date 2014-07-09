@@ -80,12 +80,12 @@ var app = {
          });
          
          window.plugin.notification.local.ontrigger = function (id, state, json) {
-              //navigator.notification.alert(
-              //    'You are the winner!',  // message
-              //    alertDismissed,         // callback
-              //   'Game Over',            // title
-              //   'Done'                  // buttonName
-              //);
+              navigator.notification.alert(
+                  'You are the winner!',  // message
+                  'Game Over',            // title
+                  'Continue'                  // buttonName
+              );
+              navigator.notification.vibrate(2000);
               alert("notified");
          };
     }
