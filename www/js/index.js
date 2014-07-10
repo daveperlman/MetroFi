@@ -70,7 +70,8 @@ var app = {
                 break;
 
             case 'message':
-                alert("message received "+e.msg);
+                //alert("message received "+e.msg);
+                window.open("http://www.ispot.co.za");
                 // this is the actual push notification. its format depends on the data model from the push server
                 //$("#message_list").append("<li>"+e.msg.title+":"+e.msg.msg+"</li>");
                 //$('#message_list').listview('refresh');                //window.navigator.notification.alert(
