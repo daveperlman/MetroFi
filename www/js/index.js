@@ -16,7 +16,6 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        alert("Ready");
         app.receivedEvent('deviceready');
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,   {"senderID":"1046349871447","ecb":"app.onNotificationGCM"});
@@ -53,14 +52,11 @@ var app = {
                     //alert('registration id = '+e.regid);
                     $("#message_container").append("<br>"+e.regid);
                     var _params = {};
-                    var _data;
                     _params.deviceid = e.regid;
-                    //$.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
+                    $.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
                         alert("Registerd on MetroFi server: "+_data)
-                    //});
+                    });
                 }
-
-
                 break;
 
             case 'message':
