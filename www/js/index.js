@@ -36,7 +36,7 @@ var app = {
     },
     // result contains any message sent from the plugin call
     successHandler: function(result) {
-        alert('Callback Success! Result = '+result)
+        //alert('Callback Success! Result = '+result)
     },
     errorHandler:function(error) {
         alert(error);
@@ -49,14 +49,24 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                     console.log("Regid " + e.regid);
+                    var _token = e.regid;
                     //alert('registration id = '+e.regid);
-                    $("#message_container").append("<br>"+e.regid);
-                    var _params = {};
-                    _params.deviceid = e.regid;
-                    $.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
-                        alert("Registerd on MetroFi server: "+e.regid);
-                    });
-                }
+                    _regparams ={};
+                    _regparams.proto = "GCM";
+                    _regparms.token = _token;
+                    $.post("http://push.metrofi.co.za/client/register.php",_regparams,function(_regdata){
+                         var _userid = _regdata.id;
+                         _subsurl = "http://push.metrofi.co.za/subscriber/"+_userid+"/subscriptions/METROFI_MESSAGE_"+_userid;
+                         $.post(_subsurl,function(_regdata){
+                              var _params = {};
+                              _params.deviceid = _token;
+                              _params.userid = _userid;
+                              $.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
+                                  $("message_container").html("<h3>Registerd on MetroFi server</h3>");
+                              });                            
+                         }); 
+                    }); 
+            }
                 break;
 
             case 'message':
