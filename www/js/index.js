@@ -54,7 +54,7 @@ var app = {
                     var _params = {};
                     _params.deviceid = e.regid;
                     $.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
-                        alert("Registerd on MetroFi server: "+_data)
+                        alert("Registerd on MetroFi server: "+e.regid);
                     });
                 }
                 break;
