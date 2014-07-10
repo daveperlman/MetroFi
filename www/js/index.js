@@ -65,10 +65,10 @@ var app = {
                               _params.userid = _userid;
                               $.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
                                   $("#message_container").html("<h3>Registered on MetroFi server</h3>");
-                                  var _welcomeurl = "http://push.metrofi.co.za/event/METROFI_MESSAGE_"+_userid;
-                                  var _welcomeparams = {};
-                                  _welcomeparams.msg = "Welcome to MetroFi FREE WiFi";
-                                  alert(_userid);
+                                  //var _welcomeurl = "http://push.metrofi.co.za/event/METROFI_MESSAGE_"+_userid;
+                                  //var _welcomeparams = {};
+                                  //_welcomeparams.msg = "Welcome to MetroFi FREE WiFi";
+                                  //alert(_userid);
                                   //$.post(_welcomeurl,_welcomeparamsfunction(_welcome){
                                      //
                                   //});
