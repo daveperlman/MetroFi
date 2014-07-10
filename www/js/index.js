@@ -18,7 +18,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         var pushNotification = window.plugins.pushNotification;
-        pushNotification.register(app.successHandler, app.errorHandler,   {"senderID":"1046349871447","ecb":"app.onNotificationGCM"});
+        pushNotification.register(app.successHandler, app.errorHandler,   {"senderID":"338635639573","ecb":"app.onNotificationGCM"});
        //app.startTimer();
        //alert("timer started");
        //$("#message_container").html("START LISTING MESSAGES");
