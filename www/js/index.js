@@ -53,7 +53,7 @@ var app = {
                     alert('registration id = '+_token);
                     _regparams ={};
                     _regparams.proto = "GCM";
-                    _regparms.token = _token;
+                    _regparams.token = _token;
                     $.post("http://push.metrofi.co.za/client/register.php",_regparams,function(_regdata){
                          //var _userid = _regdata.id;
                          //_subsurl = "http://push.metrofi.co.za/subscriber/"+_userid+"/subscriptions/METROFI_MESSAGE_"+_userid;
