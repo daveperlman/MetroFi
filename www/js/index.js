@@ -46,8 +46,7 @@ var app = {
         switch( e.event )
         {
             case 'registered':
-                if ( e.regid.length > 0 )
-                {
+                if ( e.regid.length > 0 ) {
                     console.log("Regid " + e.regid);
                     var _token = e.regid;
                     //alert('registration id = '+_token);
@@ -57,17 +56,17 @@ var app = {
                     $.post("http://push.metrofi.co.za/subscribers",_regparams,function(_regdata){
                          var _userid = _regdata.id;
                          _subsurl = "http://push.metrofi.co.za/subscriber/"+_userid+"/subscriptions/METROFI_MESSAGE_"+_userid;
-                         alert(_userid+" registered with token "+_token);
+                         //alert(_userid+" registered with token "+_token);
                          $.post(_subsurl,function(_regdata){
-                         //     var _params = {};
-                         //     _params.deviceid = _token;
-                         //     _params.userid = _userid;
-                              //$.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
-                                  $("#message_container").html("<h3>Registerd on MetroFi server</h3>");
-                              //});                            
-                        }); 
+                              var _params = {};
+                              _params.deviceid = _token;
+                              _params.userid = _userid;
+                              $.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
+                                  $("#message_container").html("<h3>Registered on MetroFi server</h3>");
+                              });                            
+                         }); 
                     }); 
-            }
+                }
                 break;
 
             case 'message':
