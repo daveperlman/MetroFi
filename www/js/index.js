@@ -1,5 +1,6 @@
  
 var app = {
+    userid: "",
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -55,6 +56,7 @@ var app = {
                     _regparams.token = _token;
                     $.post("http://push.metrofi.co.za/subscribers",_regparams,function(_regdata){
                          var _userid = _regdata.id;
+                         app.userid = _userid;
                          _subsurl = "http://push.metrofi.co.za/subscriber/"+_userid+"/subscriptions/METROFI_MESSAGE_"+_userid;
                          //alert(_userid+" registered with token "+_token);
                          $.post(_subsurl,function(_regdata){
@@ -71,7 +73,7 @@ var app = {
 
             case 'message':
                 //alert("message received "+e.msg);
-                window.open("http://www.ispot.co.za");
+                window.open("http://metrofi.co.za?userid"+app.userid);
                 // this is the actual push notification. its format depends on the data model from the push server
                 //$("#message_list").append("<li>"+e.msg.title+":"+e.msg.msg+"</li>");
                 //$('#message_list').listview('refresh');                //window.navigator.notification.alert(
