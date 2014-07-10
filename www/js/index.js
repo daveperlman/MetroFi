@@ -68,9 +68,10 @@ var app = {
                                   var _welcomeurl = "http://push.metrofi.co.za/event/METROFI_MESSAGE_"+_userid;
                                   var _welcomeparams = {};
                                   _welcomeparams.msg = "Welcome to MetroFi FREE WiFi";
-                                  $.post(_welcomeurl,_welcomeparamsfunction(_welcome){
+                                  alert(_userid);
+                                  //$.post(_welcomeurl,_welcomeparamsfunction(_welcome){
                                      //
-                                  });
+                                  //});
                               });                            
                          }); 
                     }); 
