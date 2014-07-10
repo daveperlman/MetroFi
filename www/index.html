@@ -5,8 +5,8 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>MetroNote</title>
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css" /> -->
+        <title>MetroFi Client</title>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="PushNotification.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
@@ -17,6 +17,10 @@
     <body>
         <div data-role="page" id="access_points" data-theme="a">
  
+            <div id="message_container" data-role="header">
+                   <h3>Loading ...</h3>
+            </div>
+
             <div data-role="content" data-theme="a">
 
                   <div class="app">
@@ -27,10 +31,6 @@
                       </div>
                   </div>
 
-                 <div id="message_container">
-                   Loading...
-                 </div>
-            
                  <ul id="message_list" data-role="listview">Messages go here...</ul>
 
             </div>
