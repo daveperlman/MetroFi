@@ -73,7 +73,7 @@ var app = {
                 alert("message received "+e.msg.title);
                 // this is the actual push notification. its format depends on the data model from the push server
                 $("#message_list").append("<li>"+e.msg.title+":"+e.msg.msg+"</li>");
-                //window.navigator.notification.alert(
+                $('#message_list').listview('refresh');                //window.navigator.notification.alert(
                 //    'Test Alert on Device Ready!', 
                 //    alertDismissed,  
                 //   'Testing',  
