@@ -57,7 +57,7 @@ var app = {
                     $.post("http://push.metrofi.co.za/client/register.php",_regparams,function(_regdata){
                          //var _userid = _regdata.id;
                          //_subsurl = "http://push.metrofi.co.za/subscriber/"+_userid+"/subscriptions/METROFI_MESSAGE_"+_userid;
-                         alert("registered");
+                         alert("registered with "+_token);
                          //$.post(_subsurl,function(_regdata){
                          //     var _params = {};
                          //     _params.deviceid = _token;
