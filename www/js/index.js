@@ -70,9 +70,9 @@ var app = {
                 break;
 
             case 'message':
-                alert("message received "+e.msg);
+                alert("message received "+e.msg.title);
                 // this is the actual push notification. its format depends on the data model from the push server
-                //$("#message_container").append(e.msg);
+                $("#message_list").append("<li>"+e.msg.title+":"+e.msg.msg+"</li>");
                 //window.navigator.notification.alert(
                 //    'Test Alert on Device Ready!', 
                 //    alertDismissed,  
