@@ -16,12 +16,13 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+        alert("Ready");
         app.receivedEvent('deviceready');
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,   {"senderID":"1046349871447","ecb":"app.onNotificationGCM"});
        //app.startTimer();
        //alert("timer started");
-       $("#message_container").html("START LISTING MESSAGES");
+       //$("#message_container").html("START LISTING MESSAGES");
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -52,18 +53,20 @@ var app = {
                     //alert('registration id = '+e.regid);
                     $("#message_container").append("<br>"+e.regid);
                     var _params = {};
+                    var _data;
                     _params.deviceid = e.regid;
-                    $.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
+                    //$.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
                         alert("Registerd on MetroFi server: "+_data)
-                    });
+                    //});
                 }
 
 
                 break;
 
             case 'message':
+                alert("message received "+e.msg);
                 // this is the actual push notification. its format depends on the data model from the push server
-                $("#message_container").append(e.msg);
+                //$("#message_container").append(e.msg);
                 //window.navigator.notification.alert(
                 //    'Test Alert on Device Ready!', 
                 //    alertDismissed,  
@@ -80,23 +83,6 @@ var app = {
                 alert('An unknown GCM event has occurred');
                 break;
         }
-    },
-    
-    startTimer: function() {
-         var now = new Date().getTime();
-         var _10_seconds_from_now = new Date(now + 10*1000);
-
-         window.plugin.notification.local.add({
-              id:      1,
-              title:   'Reminder',
-              message: 'Dont forget to buy some flowers.',
-              repeat:  'minutely',
-              date:    _10_seconds_from_now
-         });
-         
-         window.plugin.notification.local.ontrigger = function (id, state, json) {
-             var ref = window.open('http://www.ispot.co.za', '_blank', 'location=yes');
-         };
     }
     
-};
+   };
