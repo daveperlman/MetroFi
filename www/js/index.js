@@ -70,7 +70,7 @@ var app = {
                 break;
 
             case 'message':
-                alert("message received "+e.msg.title);
+                alert("message received "+e.msg);
                 // this is the actual push notification. its format depends on the data model from the push server
                 //$("#message_list").append("<li>"+e.msg.title+":"+e.msg.msg+"</li>");
                 //$('#message_list').listview('refresh');                //window.navigator.notification.alert(
