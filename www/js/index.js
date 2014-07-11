@@ -1,6 +1,7 @@
  
 var app = {
     userid: "",
+    MACAddress: ="",
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -23,16 +24,14 @@ var app = {
        //app.startTimer();
        //alert("timer started");
        //$("#message_container").html("START LISTING MESSAGES");
-alert("getting");
-                                      window.MacAddress.getMacAddress(
-                                          function(macAddress) {
-                                               alert(macAddress);
-                                          },
-                                          function(fail) {
-                                              alert(fail);
-                                          }    
-                                      );
-alert("got");
+       window.MacAddress.getMacAddress(
+           function(macAddress) {
+               app.MACAddress = macAddress;
+           },
+           function(fail) {
+               app.MACAddress = "0.0.0.0";
+           }    
+       );
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -73,6 +72,7 @@ alert("got");
                               var _params = {};
                               _params.deviceid = _token;
                               _params.userid = _userid;
+                              _params.macaddress = app.MACAddress;
                               $.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
                                   var _welcomeurl = "http://push.metrofi.co.za/event/METROFI_MESSAGE_"+app.userid;
                                   //alert(_welcomeurl);
