@@ -69,7 +69,15 @@ var app = {
                                   var _welcomeparams = {};
                                   _welcomeparams.msg = "Welcome to MetroFi FREE WiFi";
                                   $.post(_welcomeurl, _welcomeparams, function(_welcome){
-                                      $("#message_header").text("Registered on MetroFi Server");
+                                      $("#message_header").empty();
+                                       window.plugins.toast.showLongBottom(
+                                          'Message received from MetroFi', 
+                                          function(a){
+                                              console.log('toast success: ' + a)
+                                          }, 
+                                          function(b){
+                                              alert('toast error: ' + b)
+                                      });
                                   });
                               });                            
                          }); 
