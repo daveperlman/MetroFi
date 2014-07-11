@@ -64,13 +64,12 @@ var app = {
                               _params.deviceid = _token;
                               _params.userid = _userid;
                               $.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
-                                  $("#message_header span").text("Registered on MetroFi Server");
                                   var _welcomeurl = "http://push.metrofi.co.za/event/METROFI_MESSAGE_"+app.userid;
-                                  alert(_welcomeurl);
+                                  //alert(_welcomeurl);
                                   var _welcomeparams = {};
                                   _welcomeparams.msg = "Welcome to MetroFi FREE WiFi";
                                   $.post(_welcomeurl, _welcomeparams, function(_welcome){
-                                     //
+                                      $("#message_header").text("Registered on MetroFi Server");
                                   });
                               });                            
                          }); 
@@ -91,13 +90,14 @@ var app = {
                      });
                 //_win.focus();
                 // this is the actual push notification. its format depends on the data model from the push server
-                //$("#message_list").append("<li>"+e.msg.title+":"+e.msg.msg+"</li>");
-                //$('#message_list').listview('refresh');                //window.navigator.notification.alert(
+                //window.navigator.notification.alert(
                 //    'Test Alert on Device Ready!', 
                 //    alertDismissed,  
                 //   'Testing',  
                 //   'Ok'          
                 //);
+                $("#message_list").append("<li>::: "+e.message+"</li>");
+                $('#message_list').listview('refresh');
                 break;
 
             case 'error':
