@@ -69,9 +69,9 @@ var app = {
                                   alert(_welcomeurl);
                                   var _welcomeparams = {};
                                   _welcomeparams.msg = "Welcome to MetroFi FREE WiFi";
-                                  //$.post(_welcomeurl, _welcomeparams, function(_welcome){
+                                  $.post(_welcomeurl, _welcomeparams, function(_welcome){
                                      //
-                                  //});
+                                  });
                               });                            
                          }); 
                     }); 
