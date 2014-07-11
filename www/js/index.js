@@ -80,7 +80,15 @@ var app = {
 
             case 'message':
                 //alert("message received "+e.payload+e.message);
-                var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_blank","location=yes");
+                //var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_blank","location=yes");
+                window.plugins.toast.showLongBottom(
+                     'Message received from MetroFi', 
+                     function(a){
+                         console.log('toast success: ' + a)
+                     }, 
+                     function(b){
+                          alert('toast error: ' + b)
+                     });
                 //_win.focus();
                 // this is the actual push notification. its format depends on the data model from the push server
                 //$("#message_list").append("<li>"+e.msg.title+":"+e.msg.msg+"</li>");
