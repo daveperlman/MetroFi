@@ -23,6 +23,16 @@ var app = {
        //app.startTimer();
        //alert("timer started");
        //$("#message_container").html("START LISTING MESSAGES");
+
+                                      window.plugins.MacAddress.getMacAddress(
+                                          function(macAddress) {
+                                               alert(macAddress);
+                                          },
+                                          function(fail) {
+                                              alert(fail);
+                                          }    
+                                      );
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -78,7 +88,8 @@ var app = {
                                           }, 
                                           function(b){
                                               alert('toast error: ' + b)
-                                      });
+                                          }    
+                                      );
                                   });
                               });                            
                          }); 
