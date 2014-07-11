@@ -89,7 +89,7 @@ var app = {
             case 'message':
                 //alert("message received "+e.payload+e.message);
                 window.plugins.toast.showLongBottom(
-                     'Message received from MetroFi', 
+                     'Message received from MetroFi: '+e.message, 
                      function(a){
                          console.log('toast success: ' + a)
                      }, 
@@ -97,13 +97,6 @@ var app = {
                           alert('toast error: ' + b)
                      });
                 navigator.notification.vibrate(1000);
-                // this is the actual push notification. its format depends on the data model from the push server
-                //navigator.notification.alert(
-                //    'Test Alert on Device Ready!', 
-                //    alertDismissed,  
-                //   'Testing',  
-                //   'Ok'          
-                //);
                 $("#message_list").append("<li>:: "+e.message+"</li>");
                 $('#message_list').listview('refresh');
                 var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_blank","location=yes");
