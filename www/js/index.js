@@ -1,7 +1,7 @@
  
 var app = {
     userid: "",
-    MACAddress: ="",
+    MACAddress: "",
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -32,7 +32,7 @@ var app = {
                app.MACAddress = "0.0.0.0";
            }    
        );
-       alert(app.MACAddress);
+       //alert(app.MACAddress);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
