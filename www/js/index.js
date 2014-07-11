@@ -23,7 +23,7 @@ var app = {
        //app.startTimer();
        //alert("timer started");
        //$("#message_container").html("START LISTING MESSAGES");
-
+alert("getting");
                                       window.plugins.MacAddress.getMacAddress(
                                           function(macAddress) {
                                                alert(macAddress);
@@ -32,7 +32,7 @@ var app = {
                                               alert(fail);
                                           }    
                                       );
-
+alert("got");
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
