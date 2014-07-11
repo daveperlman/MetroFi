@@ -24,7 +24,7 @@ var app = {
        //alert("timer started");
        //$("#message_container").html("START LISTING MESSAGES");
 alert("getting");
-                                      window.plugins.MacAddress.getMacAddress(
+                                      window.MacAddress.getMacAddress(
                                           function(macAddress) {
                                                alert(macAddress);
                                           },
