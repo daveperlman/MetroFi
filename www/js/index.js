@@ -32,7 +32,7 @@ var app = {
                app.MACAddress = "0.0.0.0";
            }    
        );
-       alert(app.MACAddress);
+       //alert(app.MACAddress);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -53,7 +53,7 @@ var app = {
         alert(error);
     },
     onNotificationGCM: function(e) {
-        alert(e.event);
+        //alert(e.event);
         switch( e.event )
         {
             case 'registered':
