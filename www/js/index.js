@@ -115,7 +115,9 @@ var app = {
 
             case 'message':
                 //alert("message received "+e.payload+e.message);
-                window.plugins.toast.showLongBottom(
+               
+               //SHOW TOAST AND VIBRATE
+                window.plugins.toast.showLongCenter(
                      'Message received from MetroFi: '+e.message, 
                      function(a){
                          console.log('toast success: ' + a)
@@ -123,10 +125,22 @@ var app = {
                      function(b){
                           alert('toast error: ' + b)
                      });
-                navigator.notification.vibrate(1000);
-                $("#message_list").append("<li>:: "+e.message+"</li>");
+                navigator.notification.vibrate(500);
+                
+                //UPDATE PAGE
+                $("#message_list").append("<li><h3>:: "+e.title+"</h3>"+e.message+"</li>");
                 $('#message_list').listview('refresh');
+
+                //PING BACK TO SERVER
+                _params = {};
+                _params.message = "RECEIVED_AT_DEVICE"; 
+                $.get("http://metrofi.co.za/client/notify.php", _params, function(_response) {
+                         //                    
+                 });
+                      
+                //GET ADVERT      
                 var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_system","location=no");
+                
                 break;
 
             case 'error':
