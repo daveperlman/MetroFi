@@ -53,7 +53,7 @@ var app = {
         alert(error);
     },
     onNotificationGCM: function(e) {
-        //alert("notified");
+        alert(e.event);
         switch( e.event )
         {
             case 'registered':
