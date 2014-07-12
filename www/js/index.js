@@ -18,21 +18,36 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+
         app.receivedEvent('deviceready');
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,   {"senderID":"338635639573","ecb":"app.onNotificationGCM"});
-       //app.startTimer();
-       //alert("timer started");
-       //$("#message_container").html("START LISTING MESSAGES");
-       window.MacAddress.getMacAddress(
-           function(macAddress) {
-               app.MACAddress = macAddress;
-           },
-           function(fail) {
-               app.MACAddress = "0.0.0.0";
-           }    
-       );
-       //alert(app.MACAddress);
+  
+        //GET MAC ADDRESS
+        window.MacAddress.getMacAddress(
+            function(macAddress) {
+                app.MACAddress = macAddress;
+            },
+            function(fail) {
+                app.MACAddress = "0.0.0.0";
+            }    
+        );
+  
+        //HANDLE BACKGROUND NOTIFICATIONS
+        var BGN = window.plugins.backgroundNotification;
+        var notificationCallback = function(notification) {
+            console.log('BackgroundNotification received');
+            alert("BGN");
+            //$.get({url: '/heartbeat.json', callback: function(response) {
+            //        
+            //        BGN.finish();
+            //    }
+            //});
+        }
+        BGN.configure(notificationCallback);  
+
+        //alert(app.MACAddress);
+  
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
