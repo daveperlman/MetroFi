@@ -116,16 +116,19 @@ var app = {
             case 'message':
                 //alert("message received "+e.payload+e.message);
                
-               //SHOW TOAST AND VIBRATE
-                window.plugins.toast.showLongCenter(
-                     'Message received from MetroFi: '+e.message, 
-                     function(a){
-                         console.log('toast success: ' + a)
-                     }, 
-                     function(b){
-                          alert('toast error: ' + b)
-                     });
-                navigator.notification.vibrate(500);
+                //SHOW TOAST OR VIBRATE
+                if (e.foreground){
+                    navigator.notification.vibrate(500);
+                } else {
+                    window.plugins.toast.showLongCenter(
+                         'Message received from MetroFi: '+e.message, 
+                         function(a){
+                             console.log('toast success: ' + a)
+                         }, 
+                         function(b){
+                              alert('toast error: ' + b)
+                         });
+                }
                 
                 //UPDATE PAGE
                 $("#message_list").append("<li><h3>:: "+e.title+"</h3>"+e.message+"</li>");
