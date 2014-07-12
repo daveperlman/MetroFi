@@ -37,12 +37,12 @@ var app = {
         var BGN = window.plugins.backgroundNotification;
         var notificationCallback = function(notification) {
             console.log('BackgroundNotification received');
-            alert("BGN");
-            //$.get({url: '/heartbeat.json', callback: function(response) {
-            //        
-            //        BGN.finish();
-            //    }
-            //});
+            _params = {};
+            _params.message = "RECEIVED_AT_DEVICE"; 
+            $.get({'http://metrofi.co.za/client/notify.php'. _params,function(_response) {
+                    //                    
+                    BGN.finish();
+            });
         }
         BGN.configure(notificationCallback);  
 
