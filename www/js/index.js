@@ -44,7 +44,7 @@ var app = {
                     BGN.finish();
             });
         }
-        BGN.configure(notificationCallback);  
+        BGN.configure(app.notificationCallback);  
 
         //alert(app.MACAddress);
   
