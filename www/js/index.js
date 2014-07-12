@@ -39,7 +39,7 @@ var app = {
             console.log('BackgroundNotification received');
             _params = {};
             _params.message = "RECEIVED_AT_DEVICE"; 
-            $.get({'http://metrofi.co.za/client/notify.php', _params, function(_response) {
+            $.get("http://metrofi.co.za/client/notify.php", _params, function(_response) {
                     //                    
                     BGN.finish();
             });
