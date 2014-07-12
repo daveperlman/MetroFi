@@ -131,12 +131,12 @@ var app = {
                 );
 
                 //UPDATE PAGE
-                $("#message_list").append("<li class='mf-link'><h3>:: "+e.data.title+"</h3>"+e.message+"</li>");
+                $("#message_list").append("<li><h3>:: "+e.data.title+"</h3>"+e.message+"</li>");
                 $('#message_list').listview('refresh');
 
-                $(".mf-link").on("click", function(){
-                    window.open('http://metrofi.co.za?userid='+app.userid,'_system','location=no');
-                });
+                //$(".mf-link").on("click", function(){
+                //    window.open('http://metrofi.co.za?userid='+app.userid,'_system','location=no');
+                //});
 
                 //PING BACK TO SERVER
                 _params = {};
