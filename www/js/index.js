@@ -111,7 +111,7 @@ var app = {
                 navigator.notification.vibrate(1000);
                 $("#message_list").append("<li>:: "+e.message+"</li>");
                 $('#message_list').listview('refresh');
-                var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_blank","location=yes");
+                var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_system","location=no");
                 break;
 
             case 'error':
