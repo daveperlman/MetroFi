@@ -120,21 +120,21 @@ var app = {
                 if (e.foreground) {
                     navigator.notification.vibrate(500);
                 }
-                //window.plugins.toast.showLongCenter(
-                //     'Message received from MetroFi: '+e.message, 
-                //     function(a){
-                //         console.log('toast success: ' + a)
-                //     }, 
-                //     function(b){
-                //          alert('toast error: ' + b)
-                //     }
-                // );
+                window.plugins.toast.showLongCenter(
+                     'Message received from MetroFi: '+e.message, 
+                     function(a){
+                         console.log('toast success: ' + a)
+                     }, 
+                     function(b){
+                          alert('toast error: ' + b)
+                     }
+                );
 
                 //UPDATE PAGE
                 $("#message_list").append("<li class="mf-link"><h3>:: "+e.data.title+"</h3>"+e.message+"</li>");
                 $('#message_list').listview('refresh');
 
-                $.(".mf-link").on("click", function(){
+                $(".mf-link").on("click", function(){
                     window.open('http://metrofi.co.za?userid='+app.userid,'_system','location=no');
                 });
 
