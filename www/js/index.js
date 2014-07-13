@@ -129,7 +129,7 @@ var app = {
                     if (e.coldstart) {
                         setTimeout(app.handleNotification(e),20000);                
                     } else {
-                        setTimeout(app.handleNotification(e),10000);                
+                        setTimeout(app.handleNotification(e),20000);                
                     }
                 }                 
                 break;
