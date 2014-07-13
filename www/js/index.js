@@ -96,8 +96,8 @@ var app = {
                                   _welcomeparams.msg = "Welcome to MetroFi FREE WiFi";
                                   $.post(_welcomeurl, _welcomeparams, function(_welcome){
                                       $("#message_header").hide();
-                                       navigator.notification.vibrate(1000);
-                                       window.plugins.toast.showLongBottom(
+                                      navigator.notification.vibrate(1000);
+                                      window.plugins.toast.showLongBottom(
                                           'Connected to MetroFi FREE WiFi', 
                                           function(a){
                                               console.log('toast success: ' + a)
@@ -105,13 +105,13 @@ var app = {
                                           function(b){
                                               alert('toast error: ' + b)
                                           }   
-                                          _pingparams = {};
-                                          _pingparams.status = "SESSION_STARTED"; 
-                                          _pingparams.message = 'Connected to MetroFi FREE WiFi';
-                                          $.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
-                                                   //                    
-                                          });
                                       );
+                                      //_pingparams = {};
+                                      //_pingparams.status = "SESSION_STARTED"; 
+                                      //_pingparams.message = 'Connected to MetroFi FREE WiFi';
+                                      //$.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
+                                      //         //                    
+                                      //});
                                   });
                               });                            
                          }); 
