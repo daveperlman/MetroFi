@@ -106,12 +106,12 @@ var app = {
                                               alert('toast error: ' + b)
                                           }   
                                       );
-                                      //_pingparams = {};
-                                      //_pingparams.status = "SESSION_STARTED"; 
-                                      //_pingparams.message = 'Connected to MetroFi FREE WiFi';
-                                      //$.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
-                                      //         //                    
-                                      //});
+                                      _pingparams = {};
+                                      _pingparams.status = "SESSION_STARTED"; 
+                                      _pingparams.message = 'Connected to MetroFi FREE WiFi';
+                                      $.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
+                                               //                    
+                                      });
                                   });
                               });                            
                          }); 
@@ -125,9 +125,9 @@ var app = {
                      app.handleNotification(e);
                 } else {
                     if (e.coldstart) {
-                        setTimeout(app.handleNotification(e),2000);                
+                        setTimeout(app.handleNotification(e),20000);                
                     } else {
-                        setTimeout(app.handleNotification(e),1000);                
+                        setTimeout(app.handleNotification(e),10000);                
                     }
                 }                 
                 break;
