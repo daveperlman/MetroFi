@@ -144,18 +144,24 @@ var app = {
         }
     },
     handleNotification: function(e) {
-        
-         //SHOW TOAST AND VIBRATE
-        navigator.notification.vibrate(500);
-        window.plugins.toast.showLongCenter(
-             'Message received from MetroFi: '+e.message, 
-             function(a){
-                 console.log('toast success: ' + a)
-             }, 
-             function(b){
-                  alert('toast error: ' + b)
-             }
-        );
+$.each(e, function(key, value) {
+    alert(key+"->"+value);
+});
+
+        //SHOW TOAST OR VIBRATE
+        if (e.foreground) { 
+            navigator.notification.vibrate(500);
+        } else {
+            window.plugins.toast.showLongCenter(
+                 'Message received from MetroFi: '+e.message, 
+                 function(a){
+                     console.log('toast success: ' + a)
+                 }, 
+                 function(b){
+                      alert('toast error: ' + b)
+                 }
+            );
+        }
 
         //UPDATE PAGE
         $("#message_list").append("<li class='mf-link'><h3>:: "+e.title+"</h3>"+e.message+"</li>");
