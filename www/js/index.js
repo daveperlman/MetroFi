@@ -97,6 +97,7 @@ var app = {
                                   //alert(_welcomeurl);
                                   var _welcomeparams = {};
                                   _welcomeparams.msg = "Welcome to MetroFi FREE WiFi";
+                                  _welcomeparams.title = "CONNECTED TO MetroFi";
                                   $.post(_welcomeurl, _welcomeparams, function(_welcome){
                                       $("#header_message").append("...");
                                       navigator.notification.vibrate(1000);
