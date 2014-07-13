@@ -18,11 +18,15 @@
     <body>
         <div data-role="page" id="access_points" data-theme="a">
  
-            <div id="message_header" data-role="header" data-theme="a">
-                   <h3>Connecting ...</h3>
+            <div data-role="header" data-theme="a">
+                 <div style="text-align:center;">
+                     <img src="http://metrofi.co.za/images/metrofi_logo.png" style="width:60%;"><br><br><br>
+                 </div>
             </div>
 
             <div data-role="content" data-theme="a">
+
+                  <h3 id="message_header">Connecting ...</h3>
 
                   <div class="app" style="display:none;">
                       <h1>MetroFi</h1>
@@ -32,14 +36,16 @@
                       </div>
                   </div>
 
-                 <div style="text-align:center;">
-                     <img src="http://metrofi.co.za/images/metrofi_logo.png" style="width:60%;"><br><br><br>
-                 </div>
-                 
                  <ul id="message_list" data-role="listview"></ul>
 
             </div>
 
+           <div data-role="footer" data-theme="a">
+
+                You must click on a sponsor message in order to continue using MetroFi FREE Wifi
+
+           </div>
+           
         </div>
             
         <script type="text/javascript">
