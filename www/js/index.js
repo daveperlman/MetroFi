@@ -104,7 +104,12 @@ var app = {
                                           }, 
                                           function(b){
                                               alert('toast error: ' + b)
-                                          }    
+                                          }   
+                                          _pingparams = {};
+                                          _pingparams.status = "SESSION_STARTED"; 
+                                          $.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
+                                                   //                    
+                                          });
                                       );
                                   });
                               });                            
@@ -115,47 +120,15 @@ var app = {
 
             case 'message':
                 //alert("message received "+e.payload+e.message);
-               if (e.foreground) {
-                
-                    app.handleNotification(e);
-                    
-                    /*
-                    //SHOW TOAST AND VIBRATE
-                    navigator.notification.vibrate(500);
-                    window.plugins.toast.showLongCenter(
-                         'Message received from MetroFi: '+e.message, 
-                         function(a){
-                             console.log('toast success: ' + a)
-                         }, 
-                         function(b){
-                              alert('toast error: ' + b)
-                         }
-                    );
-    
-                    //UPDATE PAGE
-                    $("#message_list").append("<li><h3>:: "+e.data.title+"</h3>"+e.message+"</li>");
-                    $('#message_list').listview('refresh');
-    
-                    //$(".mf-link").on("click", function(){
-                    //    window.open('http://metrofi.co.za?userid='+app.userid,'_system','location=no');
-                    //});
-    
-                    //PING BACK TO SERVER
-                    _params = {};
-                    _params.message = "RECEIVED_AT_DEVICE"; 
-                    $.get("http://metrofi.co.za/client/notify.php", _params, function(_response) {
-                             //                    
-                     });
-                          
-                    //GET ADVERT      
-                    var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_system","location=no");
-                    */
-                    
-               } else {
-                
-                   setTimeout(app.handleNotification(e),20000);                
-                
-               }                 
+                if (e.foreground) {
+                     app.handleNotification(e);
+                } else {
+                    if (e.coldstart) {
+                        setTimeout(app.handleNotification(e),2000);                
+                    } else {
+                        setTimeout(app.handleNotification(e),1000);                
+                    }
+                }                 
                 break;
 
             case 'error':
@@ -169,35 +142,35 @@ var app = {
     },
     handleNotification: function(e) {
         
-                     //SHOW TOAST AND VIBRATE
-                    navigator.notification.vibrate(500);
-                    window.plugins.toast.showLongCenter(
-                         'Message received from MetroFi: '+e.message, 
-                         function(a){
-                             console.log('toast success: ' + a)
-                         }, 
-                         function(b){
-                              alert('toast error: ' + b)
-                         }
-                    );
-    
-                    //UPDATE PAGE
-                    $("#message_list").append("<li><h3>:: "+e.payload.title+"</h3>"+e.message+"</li>");
-                    $('#message_list').listview('refresh');
-    
-                    //$(".mf-link").on("click", function(){
-                    //    window.open('http://metrofi.co.za?userid='+app.userid,'_system','location=no');
-                    //});
-    
-                    //PING BACK TO SERVER
-                    _params = {};
-                    _params.message = "RECEIVED_AT_DEVICE"; 
-                    $.get("http://metrofi.co.za/client/notify.php", _params, function(_response) {
-                             //                    
-                     });
-                          
-                    //GET ADVERT      
-                    var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_system","location=no");
+         //SHOW TOAST AND VIBRATE
+        navigator.notification.vibrate(500);
+        window.plugins.toast.showLongCenter(
+             'Message received from MetroFi: '+e.message, 
+             function(a){
+                 console.log('toast success: ' + a)
+             }, 
+             function(b){
+                  alert('toast error: ' + b)
+             }
+        );
+
+        //UPDATE PAGE
+        $("#message_list").append("<li><h3>:: "+e.payload.title+"</h3>"+e.message+"</li>");
+        $('#message_list').listview('refresh');
+
+        //$(".mf-link").on("click", function(){
+        //    window.open('http://metrofi.co.za?userid='+app.userid,'_system','location=no');
+        //});
+
+        //PING BACK TO SERVER
+        _params = {};
+        _params.status = "READ_BY_USER"; 
+        $.get("http://metrofi.co.za/client/notify.php", _params, function(_response) {
+                 //                    
+        });
+              
+        //GET ADVERT      
+        var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_system","location=no");
 
     }
     
