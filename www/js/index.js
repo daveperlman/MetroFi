@@ -80,22 +80,25 @@ var app = {
                     _regparams.proto = "gcm";
                     _regparams.token = _token;
                     $.post("http://push.metrofi.co.za/subscribers",_regparams,function(_regdata){
+                         $("#header_message").append("...");
                          var _userid = _regdata.id;
                          app.userid = _userid;
                          _subsurl = "http://push.metrofi.co.za/subscriber/"+_userid+"/subscriptions/METROFI_MESSAGE_"+_userid;
                          //alert(_userid+" registered with token "+_token);
                          $.post(_subsurl,function(_regdata){
+                              $("#header_message").append("...");
                               var _params = {};
                               _params.deviceid = _token;
                               _params.userid = _userid;
                               _params.macaddress = app.MACAddress;
                               $.getJSON("http://metrofi.co.za/client/register.php",_params,function(_data){
+                                  $("#header_message").append("...");
                                   var _welcomeurl = "http://push.metrofi.co.za/event/METROFI_MESSAGE_"+app.userid;
                                   //alert(_welcomeurl);
                                   var _welcomeparams = {};
                                   _welcomeparams.msg = "Welcome to MetroFi FREE WiFi";
                                   $.post(_welcomeurl, _welcomeparams, function(_welcome){
-                                      $("#message_header").hide();
+                                      $("#header_message").append("...");
                                       navigator.notification.vibrate(1000);
                                       window.plugins.toast.showLongBottom(
                                           'Connected to MetroFi FREE WiFi', 
@@ -112,7 +115,7 @@ var app = {
                                       _pingparams.userid = app.userid;
                                       _pingparams.macaddress = app.macaddress;
                                       $.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
-                                               //                    
+                                          $("#message_header").hide();
                                       });
                                   });
                               });                            
