@@ -164,7 +164,7 @@ var app = {
         }
 
         //UPDATE PAGE
-        $("#message_list").append("<li class='mf-link'><h3>:: "+e.payload.title+"</h3>"+e.message+"</li>");
+        $("#message_list").append("<li class='mf-link'><h3>:: "+e.payload.title+"</h3><div style='font-weight:normal;'>"+e.message+"</div></li>");
         $('#message_list').listview('refresh');
 
         $(".mf-link").on("click", function(){
