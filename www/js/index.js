@@ -156,7 +156,7 @@ var app = {
         );
 
         //UPDATE PAGE
-        $("#message_list").append("<li><h3>:: "+"e.payload.title"+"</h3>"+e.message+"</li>");
+        $("#message_list").append("<li><h3>:: "+e.title+"</h3>"+e.message+"</li>");
         $('#message_list').listview('refresh');
 
         //$(".mf-link").on("click", function(){
@@ -171,7 +171,7 @@ var app = {
         });
               
         //GET ADVERT      
-        var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_system","location=no");
+        //var _win = window.open("http://metrofi.co.za?userid="+app.userid,"_system","location=no");
 
     }
     
