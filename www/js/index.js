@@ -109,6 +109,8 @@ var app = {
                                       _pingparams = {};
                                       _pingparams.status = "SESSION_STARTED"; 
                                       _pingparams.message = 'Connected to MetroFi FREE WiFi';
+                                      _pingparams.userid = app.userid;
+                                      _pingparams.macaddress = app.macaddress;
                                       $.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
                                                //                    
                                       });
@@ -159,13 +161,16 @@ var app = {
         $("#message_list").append("<li class='mf-link'><h3>:: "+e.title+"</h3>"+e.message+"</li>");
         $('#message_list').listview('refresh');
 
-        //$(".mf-link").on("click", function(){
-        //    window.open('http://metrofi.co.za?userid='+app.userid,'_system','location=no');
-        //});
+        $(".mf-link").on("click", function(){
+            window.open('http://metrofi.co.za?userid='+app.userid,'_system','location=no');
+        });
 
         //PING BACK TO SERVER
         _params = {};
         _params.status = "READ_BY_USER"; 
+        _params.message = e.message;
+        _params.userid = app.userid;
+        _params.macaddress = app.macaddress;
         $.get("http://metrofi.co.za/client/notify.php", _params, function(_response) {
                  //                    
         });
