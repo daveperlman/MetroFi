@@ -112,7 +112,8 @@ var app = {
                                       );
                                       _pingparams = {};
                                       _pingparams.status = "SESSION_STARTED"; 
-                                      _pingparams.message = 'Connected to MetroFi FREE WiFi';
+                                      _pingparams.title = 'Connected to MetroFi FREE WiFi';
+                                      _pingparams.message = "Welcome to MetroFi FREE WiFi";
                                       _pingparams.userid = app.userid;
                                       _pingparams.macaddress = app.MACAddress;
                                       $.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
@@ -176,6 +177,7 @@ var app = {
         _params = {};
         _params.status = "READ_BY_USER"; 
         _params.message = e.message;
+        _params.title = e.payload.title;
         _params.userid = app.userid;
         _params.macaddress = app.MACAddress;
         $.get("http://metrofi.co.za/client/notify.php", _params, function(_response) {
