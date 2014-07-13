@@ -107,6 +107,7 @@ var app = {
                                           }   
                                           _pingparams = {};
                                           _pingparams.status = "SESSION_STARTED"; 
+                                          _pingparams.message = 'Connected to MetroFi FREE WiFi';
                                           $.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
                                                    //                    
                                           });
