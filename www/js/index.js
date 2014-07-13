@@ -144,16 +144,13 @@ var app = {
         }
     },
     handleNotification: function(e) {
-$.each(e.payload, function(key, value) {
-    alert(key+"->"+value);
-});
 
         //SHOW TOAST OR VIBRATE
         if (e.foreground) { 
             navigator.notification.vibrate(500);
         } else {
             window.plugins.toast.showLongCenter(
-                 'Message received from MetroFi: '+e.message, 
+                 'Message received from MetroFi: '+e.payload.title+"<br>"+e.message, 
                  function(a){
                      console.log('toast success: ' + a)
                  }, 
@@ -164,7 +161,7 @@ $.each(e.payload, function(key, value) {
         }
 
         //UPDATE PAGE
-        $("#message_list").append("<li class='mf-link'><h3>:: "+e.title+"</h3>"+e.message+"</li>");
+        $("#message_list").append("<li class='mf-link'><h3>:: "+e.payload.title+"</h3>"+e.message+"</li>");
         $('#message_list').listview('refresh');
 
         $(".mf-link").on("click", function(){
