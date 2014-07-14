@@ -121,7 +121,8 @@ var app = {
                                       _pingparams = {};
                                       _pingparams.status = "SESSION_STARTED"; 
                                       _pingparams.title = 'Registered on MetroFi FREE WiFi';
-                                      _pingparams.message = "Welcome to MetroFi FREE WiFi - Yours to use completely free of charge as long as you support our sponsors by clicking on their messages.";
+                                      _pingparams.message = "Welcome to MetroFi FREE WiFi - Yours to use completely free of charge as long as you support our sponsors by clicking on their messages. - Just click GO FREE to continue free.<br><br>";
+                                      _pingparams.message += "If you prefer a FASTER CONNECTION with on SPONSOR NAGGING click GO PREMIUM and get a high speed PREMIUM METROFI connection for only R9.99!";
                                       _pingparams.userid = app.userid;
                                       _pingparams.macaddress = app.MACAddress;
                                       $.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
