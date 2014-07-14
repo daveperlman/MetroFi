@@ -54,9 +54,9 @@
             
             app.initialize();
             
-            //SEND APP TO BACKGROUND
-            var bgMode = window.plugins.backgroundMode;           
-            $(documet).ready(function(){
+            //SEND APP TO BACKGRUD
+            $(document).ready(function(){
+                var bgMode = window.plugins.backgroundMode;           
                 $("#btn_connect").on("click",function(){
                     bgMode.enable();  
                 }); 
