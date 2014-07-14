@@ -162,17 +162,17 @@ var app = {
 
         //SHOW TOAST OR VIBRATE
         if (e.foreground) { 
-            navigator.notification.vibrate(500);
+            navigator.notification.beep();
         } else {
-            window.plugins.toast.showLongCenter(
-                 'Message received from MetroFi: '+e.payload.title+"<br>"+e.message, 
-                 function(a){
-                     console.log('toast success: ' + a)
-                 }, 
-                 function(b){
-                      alert('toast error: ' + b)
-                 }
-            );
+            //window.plugins.toast.showLongCenter(
+            //     'Message received from MetroFi: '+e.payload.title+"<br>"+e.message, 
+            //     function(a){
+            //         console.log('toast success: ' + a)
+            //     }, 
+            //     function(b){
+            //          alert('toast error: ' + b)
+            //     }
+            //);
         }
 
         //UPDATE PAGE
