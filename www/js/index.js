@@ -54,7 +54,7 @@ var app = {
     },
     onBackKeyDown: function() {
         alert("exit");
-    }
+    },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
