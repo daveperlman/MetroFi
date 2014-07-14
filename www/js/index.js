@@ -34,6 +34,8 @@ var app = {
         );
         
         document.addEventListener("backbutton", app.onBackKeyDown, false);
+        document.addEventListener("menubutton", app.onBackKeyDown, false);
+        document.addEventListener("searchbutton", app.onBackKeyDown, false);
 
   
         //HANDLE BACKGROUND NOTIFICATIONS
