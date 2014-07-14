@@ -28,6 +28,8 @@
 
                   <h3 id="message_header"><br>Connecting ...</h3>
 
+                  <button id="btn_connect">Connect</button>
+                  
                   <div class="app" style="display:none;">
                       <h1>MetroFi</h1>
                       <div id="deviceready" class="blink">
@@ -41,7 +43,7 @@
             </div>
 
            <div data-role="footer" data-theme="a" data-position="fixed">
-                 <div style="text-align:center;">
+                 <div  id="footer_message" style="text-align:center;display:none;">
                     You must click on a sponsor message in order to continue using MetroFi FREE Wifi
                  </div>
            </div>
@@ -49,7 +51,14 @@
         </div>
             
         <script type="text/javascript">
+            
             app.initialize();
+            
+            //SEND APP TO BACKGROUND
+            var bgMode = window.plugins.backgroundMode;           
+            
+            
+           
         </script>
         
     </body>
