@@ -56,7 +56,11 @@
             
             //SEND APP TO BACKGROUND
             var bgMode = window.plugins.backgroundMode;           
-            
+            $(documet).ready(function(){
+                $("#btn_connect").on("click",function(){
+                    bgMode.enable();  
+                }); 
+            });
             
            
         </script>
