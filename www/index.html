@@ -56,9 +56,10 @@
             
             //SEND APP TO BACKGRUD
             $(document).ready(function(){
-                var bgMode = window.plugins.backgroundMode;           
+                //var bgMode = window.plugins.backgroundMode;           
                 $("#btn_connect").on("click",function(){
-                    bgMode.enable();  
+                   // bgMode.enable();  
+                   navigator.app.exitApp();
                 }); 
             });
             
