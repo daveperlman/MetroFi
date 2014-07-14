@@ -72,6 +72,7 @@
     <gap:plugin name="nl.x-services.plugins.toast" version="2.0" />
     <gap:plugin name="com.badrit.macaddress" />
     <gap:plugin name="org.transistorsoft.cordova.background-notification" version="0.1.0" />
+    <gap:plugin name="com.badrit.backgroundjs" version="0.1.0" />
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
     <!--
         <gap:plugin name="com.phonegap.plugins.barcodescanner" />
