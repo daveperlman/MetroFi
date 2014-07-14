@@ -54,14 +54,15 @@
             
             app.initialize();
             
-            //SEND APP TO BACKGRUD
-            //$(document).ready(function(){
-            //    //var bgMode = window.plugins.backgroundMode;           
-            //    $("#btn_connect").on("click",function(){
-            //       // bgMode.enable();  
-            //       navigator.app.exitApp();
-            //    }); 
-            //});
+            //SEND APP TO BACKGRUOUND
+            $(document).ready(function(){
+                //var bgMode = window.plugins.backgroundMode;           
+                $("#btn_connect").on("click",function(){
+                   //navigator.app.exitApp();
+                   navigator.Backbutton.goHome();
+                   $(this).hide();
+                }); 
+            });
             
            
         </script>
