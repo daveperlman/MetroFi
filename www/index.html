@@ -23,7 +23,7 @@
                      <img src="http://metrofi.co.za/images/metrofi_logo.png" style="width:50%;"><br>
                  </div>
                   <div id="div_buttons" style="display:none;">
-                      <button id="btn_connect">Go FREE</button><br>
+                      <button id="btn_connect">Go FREE</button>
                       <button id="btn_premium">Go PREMIUM</button><br>
                   </div>
 
@@ -64,7 +64,7 @@
                    //navigator.app.exitApp();
                    navigator.Backbutton.goHome();
                 }); 
-                $("#btn_connect").on("click",function(){
+                $("#btn_premium").on("click",function(){
                     var _win = window.open("http://metrofi.co.za?usertype=premium&macaddress="+app.MACAddress+"&userid="+app.userid,"_system","location=no");
                 }); 
             });
