@@ -55,7 +55,7 @@ var app = {
   
     },
     onBackKeyDown: function() {
-        alert("exit");
+        navigator.Backbutton.goHome();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
