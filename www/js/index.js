@@ -104,20 +104,20 @@ var app = {
                                   var _welcomeurl = "http://push.metrofi.co.za/event/METROFI_MESSAGE_"+app.userid;
                                   //alert(_welcomeurl);
                                   var _welcomeparams = {};
-                                  _welcomeparams.msg = "Welcome to MetroFi FREE WiFi";
-                                  _welcomeparams.title = "CONNECTED TO MetroFi";
+                                  _welcomeparams.msg = "Welcome to MetroFi FREE WiFi - Yours to use completely free of charge as long as you support our sponsors by clicking on their messages.";
+                                  _welcomeparams.title = "Registered on MetroFi";
                                   $.post(_welcomeurl, _welcomeparams, function(_welcome){
                                       $("#header_message").text("Registering ......");
                                       navigator.notification.vibrate(1000);
-                                      window.plugins.toast.showLongBottom(
-                                          'Registered on MetroFi FREE WiFi', 
-                                          function(a){
-                                              console.log('toast success: ' + a)
-                                          }, 
-                                          function(b){
-                                              alert('toast error: ' + b)
-                                          }   
-                                      );
+                                      //window.plugins.toast.showLongBottom(
+                                      //    'Registered on MetroFi FREE WiFi', 
+                                      //    function(a){
+                                      //        console.log('toast success: ' + a)
+                                      //    }, 
+                                      //    function(b){
+                                      //        alert('toast error: ' + b)
+                                      //    }   
+                                      //);
                                       _pingparams = {};
                                       _pingparams.status = "SESSION_STARTED"; 
                                       _pingparams.title = 'Registered on MetroFi FREE WiFi';
@@ -126,6 +126,7 @@ var app = {
                                       _pingparams.macaddress = app.MACAddress;
                                       $.get("http://metrofi.co.za/client/notify.php", _pingparams, function(_response) {
                                           $("#message_header").hide();
+                                          $("#div_buttons").show();
                                       });
                                   });
                               });                            
@@ -189,7 +190,7 @@ var app = {
         _params.userid = app.userid;
         _params.macaddress = app.MACAddress;
         $.get("http://metrofi.co.za/client/notify.php", _params, function(_response) {
-            $("#btn_connect").show();
+            $("#div_buttons").show();
         });
               
         //GET ADVERT      
