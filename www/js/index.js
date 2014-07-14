@@ -161,7 +161,7 @@ var app = {
 
         //SHOW TOAST OR VIBRATE
         if (e.foreground) { 
-            navigator.notification.beep();
+            navigator.notification.beep(1);
         } else {
             //window.plugins.toast.showLongCenter(
             //     'Message received from MetroFi: '+e.payload.title+"<br>"+e.message, 
