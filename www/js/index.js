@@ -32,6 +32,9 @@ var app = {
                 app.MACAddress = "0.0.0.0";
             }    
         );
+        
+        document.addEventListener("backbutton", app.onBackKeyDown, false);
+
   
         //HANDLE BACKGROUND NOTIFICATIONS
         //var BGN = window.plugins.backgroundNotification;
@@ -49,6 +52,9 @@ var app = {
         //alert(app.MACAddress);
   
     },
+    onBackKeyDown: function() {
+        alert("exit");
+    }
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
