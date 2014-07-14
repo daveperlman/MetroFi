@@ -28,7 +28,8 @@
 
                   <h3 id="message_header"><br>Registering ...</h3>
 
-                  <button id="btn_connect">Connect</button><br><br>
+                  <button id="btn_connect">Go FREE</button><br><br>
+                  <button id="btn_premium">Go PREMIUM</button><br><br>
                   
                   <div class="app" style="display:none;">
                       <h1>MetroFi</h1>
@@ -61,6 +62,9 @@
                    //navigator.app.exitApp();
                    navigator.Backbutton.goHome();
                    $(this).hide();
+                }); 
+                $("#btn_connect").on("click",function(){
+                    var _win = window.open("http://metrofi.co.za?usertype=premium&macaddress="+app.MACAddress+"&userid="+app.userid,"_system","location=no");
                 }); 
             });
             
