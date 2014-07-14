@@ -103,13 +103,13 @@ var app = {
                                   $("#header_message").text("Registering .....");
                                   var _welcomeurl = "http://push.metrofi.co.za/event/METROFI_MESSAGE_"+app.userid;
                                   //alert(_welcomeurl);
-                                  var welcomemessage = "Welcome to MetroFi FREE WiFi - Yours to use completely free of charge as long as you support our sponsors by clicking on their messages. - Just click GO FREE to continue free.<br><br>If you prefer a FASTER CONNECTION with on SPONSOR NAGGING click GO PREMIUM and get a high speed PREMIUM METROFI connection for only R9.99!";
+                                  var _welcomemessage = "Welcome to MetroFi FREE WiFi - Yours to use completely free of charge as long as you support our sponsors by clicking on their messages. - Just click GO FREE to continue free.<br><br>If you prefer a FASTER CONNECTION with on SPONSOR NAGGING click GO PREMIUM and get a high speed PREMIUM METROFI connection for only R9.99!";
                                   var _welcomeparams = {};
                                   _welcomeparams.msg = _welcomemessage;
                                   _welcomeparams.title = "Registered on MetroFi";
                                   $.post(_welcomeurl, _welcomeparams, function(_welcome){
                                       $("#header_message").text("Registering ......");
-                                      navigator.notification.vibrate(1000);
+                                      navigator.notification.vibrate(500);
                                       //window.plugins.toast.showLongBottom(
                                       //    'Registered on MetroFi FREE WiFi', 
                                       //    function(a){
