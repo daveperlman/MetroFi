@@ -161,14 +161,18 @@ var app = {
     handleNotification: function(e) {
 
         //UPDATE PAGE
+        //$.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
         var _advertid = e.payload.title.replace(/ /,"");
-        _messageblock = $("#message_list").prepend("<li class='mf-link "+_advertid+"'><h3>:: "+e.payload.title+"</h3><div style='font-weight:normal;'>"+e.message+"</div></li>");
+        _advert = {};
+        _advert.image = "http://metrofi.co.za/client/images/182.png";
+        _li = "<li class='mf-link "+_advertid+"'>";
+        _li += "<img src='"+_advert.image+"' style='width:100%;'>";
+        _li += "<h3>:: "+e.payload.title+"</h3>";
+        _li += "<div style='font-weight:normal;'>"+e.message+"</div>";
+        _li += "</li>"
+        _messageblock = $("#message_list").prepend(_li);
         _advertparams={};
         _advertparams.advert = e.payload.title;
-        //$.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
-            _advert = {};
-            _advert.image = "http://metrofi.co.za/client/images/182.png";
-            $("."+_advertid).css("background","transparent url(http://metrofi.co.za/client/images/182.png) no-repeat");
         //});
         $('#message_list').listview('refresh');
         $(".mf-link").on("click", function(){
