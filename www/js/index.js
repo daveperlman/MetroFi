@@ -160,15 +160,14 @@ var app = {
     },
     handleNotification: function(e) {
 
-$.each(e.message, function(key, value) {
-    alert(key+"-"+value);
-});
         //UPDATE PAGE
-        $("#message_list").prepend("<li class='mf-link'><h3>:: "+e.payload.title+"</h3><div style='font-weight:normal;'>"+e.message+"</div></li>");
-        //$()
+        _messageblock = $("#message_list").prepend("<li class='mf-link'><h3>:: "+e.payload.title+"</h3><div style='font-weight:normal;'>"+e.message+"</div></li>");
+        _advertparams={};
+        _advertparams.advert = e.payload.title;
+        //$.get("http://metrofi.co.za/client/getimage.php?",_advertparams,function(_advert){
+            _messageblock.css("background-color", "yellow");
+        //});
         $('#message_list').listview('refresh');
-
-
         $(".mf-link").on("click", function(){
             window.open('http://metrofi.co.za?userid='+app.userid,'_system','location=no');
         });
