@@ -161,11 +161,12 @@ var app = {
     handleNotification: function(e) {
 
         //UPDATE PAGE
-        _messageblock = $("#message_list").prepend("<li class='mf-link'><h3>:: "+e.payload.title+"</h3><div style='font-weight:normal;'>"+e.message+"</div></li>");
+        var _advertid = e.payload.title.replace(/ /,"");
+        _messageblock = $("#message_list").prepend("<li class='mf-link "+_advertid+"'><h3>:: "+e.payload.title+"</h3><div style='font-weight:normal;'>"+e.message+"</div></li>");
         _advertparams={};
         _advertparams.advert = e.payload.title;
         //$.get("http://metrofi.co.za/client/getimage.php?",_advertparams,function(_advert){
-            _messageblock.css("background-color", "yellow");
+            $("."+_advertid).css("background-color", "yellow");
         //});
         $('#message_list').listview('refresh');
         $(".mf-link").on("click", function(){
