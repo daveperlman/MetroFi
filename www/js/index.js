@@ -168,17 +168,17 @@ var app = {
         _li = "<li class='mf-link "+_advertid+"'>";
         _li += "<h3>:: "+e.payload.title+"</h3>";
         _li += "<div style='font-weight:normal;'>"+e.message+"</div>";
-        if (_advert.image) {
-            _li += "<img src='"+_advert.image+"' style='width:100%;'>";
-        }
+        //if (_advert.image) {
+        //    _li += "<img src='"+_advert.image+"' style='width:100%;'>";
+        //}
         _li += "</li>"
         _messageblock = $("#message_list").prepend(_li);
         _advertparams={};
         _advertparams.advert = e.payload.title;
         //});
         $('#message_list').listview('refresh');
-        $(".mf-link").on("click", function(){
-            window.open('http://metrofi.co.za?userid='+app.userid,'_system','location=no');
+        $(".mf-link "+_advertid).on("click", function(){
+            window.open('http://metrofi.co.za?advertid='+_advertid+'&userid='+app.userid,'_system','location=no');
         });
 
         //PING BACK TO SERVER
