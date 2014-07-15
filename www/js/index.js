@@ -167,7 +167,7 @@ var app = {
         var _advertid = e.payload.title.replace(/ /,"");
         _advert = {};
         _advert.image = "http://metrofi.co.za/client/images/182.jpg";
-        _li = "<li class='mf-link-"+_advertid+"' data-theme='a'>";
+        _li = "<li class='mf-link-"+_advertid+"' data-theme='a' style='display:none;'>";
         _li += "<h3>:: "+e.payload.title+"</h3>";
         _li += "<div style='font-weight:normal;'>"+e.message+"</div>";
         //if (_advert.image) {
@@ -178,7 +178,7 @@ var app = {
         _messageblock = $("#message_list").prepend(_li);
         //});
         $('#message_list').listview('refresh');
-        $(".mf-link-"+_advertid).on("click", function(){
+        $(".mf-link-"+_advertid).show("slow").on("click", function(){
             window.open('http://metrofi.co.za?adverttitle='+e.payload.title+'&userid='+app.userid,'_system','location=no');
         });
 
