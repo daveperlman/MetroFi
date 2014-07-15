@@ -161,7 +161,7 @@ var app = {
     handleNotification: function(e) {
 
         //UPDATE PAGE
-        $("#message_list").prepend("<li class='mf-link'><h3>:: "+e.payload.data+" : "+e.payload.title+"</h3><div style='font-weight:normal;'>"+e.message+"</div></li>");
+        $("#message_list").prepend("<li class='mf-link'><h3>:: "+e.payload.messages.data+" : "+e.payload.title+"</h3><div style='font-weight:normal;'>"+e.message+"</div></li>");
         //$()
         $('#message_list').listview('refresh');
 
