@@ -166,8 +166,9 @@ var app = {
         _advertparams={};
         _advertparams.advert = e.payload.title;
         //$.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
-            _advert.image= "http://metrofi.co.za/client/images/182.png";
-            $("."+_advertid).append("<img src='"+_advert.image+"' style='width:100%:'");
+            _advert = {};
+            _advert.image = "http://metrofi.co.za/client/images/182.png";
+            $("."+_advertid).css("background-image","url(http://metrofi.co.za/client/images/182.png) no-repeat");
         //});
         $('#message_list').listview('refresh');
         $(".mf-link").on("click", function(){
