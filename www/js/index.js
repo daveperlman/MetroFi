@@ -165,12 +165,13 @@ var app = {
         var _advertid = e.payload.title.replace(/ /,"");
         _advert = {};
         _advert.image = "http://metrofi.co.za/client/images/182.jpg";
-        _li = "<li class='mf-link"+_advertid+"'>";
+        _li = "<li class='mf-link"+_advertid+"' data-theme='c'>";
         _li += "<h3>:: "+e.payload.title+"</h3>";
         _li += "<div style='font-weight:normal;'>"+e.message+"</div>";
         //if (_advert.image) {
         //    _li += "<img src='"+_advert.image+"' style='width:100%;'>";
         //}
+        _li += "<span style='float:right;font-size:small;'>Click to visit sponsor&nbsp;</span>";
         _li += "</li>"
         _messageblock = $("#message_list").prepend(_li);
         _advertparams={};
