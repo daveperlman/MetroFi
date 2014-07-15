@@ -165,8 +165,7 @@ var app = {
         var _advertid = e.payload.title.replace(/ /,"");
         _advert = {};
         _advert.image = "http://metrofi.co.za/client/images/182.jpg";
-        _li = "<li class='mf-link "+_advertid+"'>";
-        _li += "<img src='"+_advert.image+"' style='width:100%;position:absolute;'>";
+        _li = "<li class='mf-link "+_advertid+"' style='background:transparent url("+_advert.image+") no-repeat;'>";
         _li += "<h3>:: "+e.payload.title+"</h3>";
         _li += "<div style='font-weight:normal;'>"+e.message+"</div>";
         _li += "</li>"
