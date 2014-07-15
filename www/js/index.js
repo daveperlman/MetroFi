@@ -160,7 +160,7 @@ var app = {
     },
     handleNotification: function(e) {
 
-$.each(e, function(key, value) {
+$.each(e.payload, function(key, value) {
     alert(key+"-"+value);
 });
         //UPDATE PAGE
