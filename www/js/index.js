@@ -173,7 +173,7 @@ var app = {
         //if (_advert.image) {
         //    _li += "<img src='"+_advert.image+"' style='width:100%;'>";
         //}
-        _li += "<span style='float:right;font-size:small;'>Click to visit sponsor&nbsp;</span>";
+        _li += "<span style='float:right;font-size:small;font-style;italic;font-weight:light;'>Click to visit sponsor&nbsp;</span><br>";
         _li += "</li>"
         _messageblock = $("#message_list").prepend(_li);
         //});
