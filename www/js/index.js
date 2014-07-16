@@ -170,8 +170,9 @@ var app = {
         _li += "<div class='msg-content'></div>";
         _li += "<span style='float:right;font-size:small;font-style;italic;font-weight:light;'>Tap to visit sponsor&nbsp;</span><br>";
         _li += "</li>";
-        _messageblock = $(_li);
+        var _messageblock = $(_li);
         $("#message_list").prepend(_messageblock);
+        var _url = "'http://metrofi.co.za?adverttitle='+e.payload.title+'&userid='+app.userid";
         _advertparams={};
         _advertparams.advert = e.payload.title;
         _advertparams.title = e.payload.title;
@@ -179,11 +180,15 @@ var app = {
         _advertparams.userid = app.userid;
         _advertparams.macaddress = app.MACAddress;
         $.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
-             _messageblock.find(".msg-content").append("<div>"+_advert.content+"</div>");            
-        });
-        $('#message_list').listview('refresh');
-        $(".mf-link-"+_advertid).on("click", function(){
-            window.open('http://metrofi.co.za?adverttitle='+e.payload.title+'&userid='+app.userid,'_system','location=no');
+             if (_advert.type == "image") {
+                 _messageblock.find(".msg-content").append("<img src='"+_advert.content+"' style='width:100%;'");            
+             });
+             _url = _advert.url;
+        }).done(function(){
+            _messageblock.on("click", function(){
+                window.open(_url,'_system','location=no');
+            });
+            $('#message_list').listview('refresh');
         });
 
         //PING BACK TO SERVER
