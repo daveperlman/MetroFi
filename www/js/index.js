@@ -167,15 +167,15 @@ var app = {
         _li = "<li class='mf-link-"+_advertid+"'>";
         _li += "<h3>:: "+e.payload.title+"</h3>";
         _li += "<div style='font-weight:normal;'>"+e.message+"</div>";
-        _li += "<div class='msg-content'>"+e.message+"</div>";
+        _li += "<div class='msg-content'></div>";
         _li += "<span style='float:right;font-size:small;font-style;italic;font-weight:light;'>Tap to visit sponsor&nbsp;</span><br>";
         _li += "</li>";
-        _messageblock = $("#message_list").prepend(_li).hide().show("slow");
+        _messageblock = $("#message_list").prepend(_li);
         _advertparams={};
         _advertparams.advert = e.payload.title;
-        //$.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
-             _messageblock.find(".msg-content").append("Hello world");            
-        //});
+        $.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
+             _messageblock.find(".msg-content").append("<div>"+_advert.content+"</div>");            
+        });
         $('#message_list').listview('refresh');
         $(".mf-link-"+_advertid).on("click", function(){
             window.open('http://metrofi.co.za?adverttitle='+e.payload.title+'&userid='+app.userid,'_system','location=no');
