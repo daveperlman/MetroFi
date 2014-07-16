@@ -179,17 +179,17 @@ var app = {
         _advertparams.message = e.payload.message;
         _advertparams.userid = app.userid;
         _advertparams.macaddress = app.MACAddress;
-        //$.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
+        $.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
         //     if (_advert.type == "image") {
         //         _messageblock.find(".msg-content").append("<img src='"+_advert.content+"' style='width:100%;'");            
         //     });
         //     _url = _advert.url;
-        //}).done(function(){
+        }).done(function(){
             _messageblock.on("click", function(){
                 window.open(_url,'_system','location=no');
             });
             $('#message_list').listview('refresh');
-        //});
+        });
 
         //PING BACK TO SERVER
         _params = {};
