@@ -172,24 +172,24 @@ var app = {
         _li += "</li>";
         var _messageblock = $(_li);
         $("#message_list").prepend(_messageblock);
-        var _url = "'http://metrofi.co.za?adverttitle='+e.payload.title+'&userid='+app.userid";
+        var _url = "http://metrofi.co.za?adverttitle="+e.payload.title+"&userid="+app.userid;
         _advertparams={};
         _advertparams.advert = e.payload.title;
         _advertparams.title = e.payload.title;
         _advertparams.message = e.payload.message;
         _advertparams.userid = app.userid;
         _advertparams.macaddress = app.MACAddress;
-        $.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
-             if (_advert.type == "image") {
-                 _messageblock.find(".msg-content").append("<img src='"+_advert.content+"' style='width:100%;'");            
-             });
-             _url = _advert.url;
-        }).done(function(){
+        //$.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
+        //     if (_advert.type == "image") {
+        //         _messageblock.find(".msg-content").append("<img src='"+_advert.content+"' style='width:100%;'");            
+        //     });
+        //     _url = _advert.url;
+        //}).done(function(){
             _messageblock.on("click", function(){
                 window.open(_url,'_system','location=no');
             });
             $('#message_list').listview('refresh');
-        });
+        //});
 
         //PING BACK TO SERVER
         _params = {};
