@@ -184,7 +184,7 @@ var app = {
              if (_advert) {
                  if (_advert[0].type == "image") {
                  //alert(_advert[0].content);
-                     _messageblock.find(".msg-content").append("<img src='http://metrofi.co.za/client/images/"+_advert[0].content+"' style='width:100%;'");            
+                     _messageblock.find(".msg-content").append("<img src='http://metrofi.co.za/client/images/"+_advert[0].content+"' style='width:100%;'>");            
                  }
                  if (_advert[0].url) {
                      _url = _advert[0].url;
