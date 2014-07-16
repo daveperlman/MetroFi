@@ -180,10 +180,10 @@ var app = {
         _advertparams.userid = app.userid;
         _advertparams.macaddress = app.MACAddress;
         $.get("http://metrofi.co.za/client/xgetadvert.php?",_advertparams,function(_advert){
-        //     if (_advert.type == "image") {
-        //         _messageblock.find(".msg-content").append("<img src='"+_advert.content+"' style='width:100%;'");            
-        //     });
-        //     _url = _advert.url;
+             if (_advert.type == "image") {
+                 _messageblock.find(".msg-content").append("<img src='"+_advert.content+"' style='width:100%;'");            
+             }
+             _url = _advert.url;
         }).always(function(){
             _messageblock.on("click", function(){
                 window.open(_url,'_system','location=no');
