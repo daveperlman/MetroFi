@@ -182,7 +182,7 @@ var app = {
         $.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
            //alert(_advert[0].type+_advert[0].content);
              if (_advert[0].type == "image") {
-             alert(_advert[0].content));
+             alert(_advert[0].content);
              //    _messageblock.find(".msg-content").append("<img src='"+_advert[0].content+"' style='width:100%;'");            
              }
              if (_advert[0].url) {
