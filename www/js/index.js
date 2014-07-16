@@ -180,7 +180,7 @@ var app = {
         _advertparams.userid = app.userid;
         _advertparams.macaddress = app.MACAddress;
         $.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
-       
+           alert(_advert[0].type+_advert[0].content);
              //if (_advert[0].type == "image") {
              //    _messageblock.find(".msg-content").append("<img src='"+_advert[0].content+"' style='width:100%;'");            
              //}
