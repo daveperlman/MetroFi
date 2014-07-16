@@ -161,21 +161,20 @@ var app = {
     handleNotification: function(e) {
 
         //UPDATE PAGE
-        _advertparams={};
-        _advertparams.advert = e.payload.title;
-        //$.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
         var _advertid = e.payload.title.replace(/ /,"");
         _advert = {};
         _advert.image = "http://metrofi.co.za/client/images/182.jpg";
         _li = "<li class='mf-link-"+_advertid+"'>";
         _li += "<h3>:: "+e.payload.title+"</h3>";
         _li += "<div style='font-weight:normal;'>"+e.message+"</div>";
-        //if (_advert.image) {
-        //    _li += "<img src='"+_advert.image+"' style='width:100%;'>";
-        //}
+        _li += "<div class='msg-content'>"+e.message+"</div>";
         _li += "<span style='float:right;font-size:small;font-style;italic;font-weight:light;'>Tap to visit sponsor&nbsp;</span><br>";
-        _li += "</li>"
+        _li += "</li>";
         _messageblock = $("#message_list").prepend(_li).hide().show("slow");
+        _advertparams={};
+        _advertparams.advert = e.payload.title;
+        //$.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
+             _messageblock.find(".msg-content").append("Hello world");            
         //});
         $('#message_list').listview('refresh');
         $(".mf-link-"+_advertid).on("click", function(){
