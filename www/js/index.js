@@ -170,9 +170,14 @@ var app = {
         _li += "<div class='msg-content'></div>";
         _li += "<span style='float:right;font-size:small;font-style;italic;font-weight:light;'>Tap to visit sponsor&nbsp;</span><br>";
         _li += "</li>";
-        _messageblock = $("#message_list").prepend(_li);
+        _messageblock = $(_li);
+        $("#message_list").prepend(_messageblock);
         _advertparams={};
         _advertparams.advert = e.payload.title;
+        _advertparams.title = e.payload.title;
+        _advertparams.message = e.payload.message;
+        _advertparams.userid = app.userid;
+        _advertparams.macaddress = app.MACAddress;
         $.get("http://metrofi.co.za/client/getadvert.php?",_advertparams,function(_advert){
              _messageblock.find(".msg-content").append("<div>"+_advert.content+"</div>");            
         });
