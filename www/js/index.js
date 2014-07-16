@@ -171,7 +171,7 @@ var app = {
         _li += "<span style='float:right;font-size:small;font-style;italic;font-weight:light;'>Tap to visit sponsor&nbsp;</span><br>";
         _li += "</li>";
         var _messageblock = $(_li);
-        $("#message_list").prepend(_messageblock);
+        //$("#message_list").prepend(_messageblock);
         var _url = "http://metrofi.co.za?adverttitle="+e.payload.title+"&userid="+app.userid;
         _advertparams={};
         _advertparams.advert = e.payload.title;
@@ -184,11 +184,11 @@ var app = {
         //         _messageblock.find(".msg-content").append("<img src='"+_advert.content+"' style='width:100%;'");            
         //     });
         //     _url = _advert.url;
-        }).done(function(){
+        }).always(function(){
             _messageblock.on("click", function(){
                 window.open(_url,'_system','location=no');
             });
-            $('#message_list').listview('refresh');
+            $('#message_list').prepend(_li).listview('refresh');
         });
 
         //PING BACK TO SERVER
