@@ -26,6 +26,8 @@
                      <button id="btn_connect"data-role="button" data-inline="true">GO FREE</button>
                      &nbsp;&nbsp;&nbsp;&nbsp;
                      <button id="btn_premium"data-role="button" data-inline="true">GO PREMIUM</button><br><br>
+                     &nbsp;&nbsp;&nbsp;&nbsp;
+                     <button id="btn_reconnect"data-role="button" data-inline="true">RECONNECT</button><br><br>
                  </div>
 
             </div>
@@ -68,6 +70,10 @@
                 $("#btn_premium").on("click",function(){
                     var _win = window.open("http://metrofi.co.za?usertype=premium&macaddress="+app.MACAddress+"&userid="+app.userid,"_system","location=no");
                 }); 
+                $("#btn_reconnect").on("click",function(){
+                      var pushRegister = window.plugins.pushNotification;
+                      pushRegister.register(app.successHandler, app.errorHandler,   {"senderID":"338635639573","ecb":"app.onNotificationGCM"});
+                });  
             });
             
            
