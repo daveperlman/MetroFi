@@ -67,7 +67,7 @@
                 $("#btn_premium").on("click",function(){
                     _premium =  "<li>";
                     _premium += ":: MetroFi PREMIUM ACCESS<br>";
-                    _premium += "<em>You have 0 hours PREMOUM ACCCESS left</em><br><br>";
+                    _premium += "<em style='font-size:smaller;'>(You have 0 hours PREMIUM ACCCESS left)</em><br><br>";
                					_premium +- "<div style='font-weight:normal;'>";
                     _premium += "If you wish to continue browsing without interruption from advertisers please purchase ";
                					_premium += "our PREMIUM ACCESS product by sending us an SMS with the single key word <b>METROFI</b>."; 
@@ -76,12 +76,11 @@
                					_premium += "&raquo;&nbsp;24 Hours MetroFi PREMIUM Access<br>&nbsp;&nbsp;&nbsp;<b>SMS: METROFI to 12345</b> (R10.00)<br><br>";
                					_premium += "&raquo;&nbsp;7 Days MetroFi PREMIUM Access<br><b>&nbsp;&nbsp;&nbsp;SMS: METROFI to 54321</b> (R30.00)";
                					_premium += "<br><br>";
+               					_premium += "<button id='btn_continue' data-role='button'>CONTINUE</button>";
                					_premium +- "</div>";
                     _premium += "</li>"; 
                     _pli = $(_premium);
                     _pli = $('#message_list').empty().append(_pli).listview('refresh');
-                    _continuebtn = $("<button id='btn_continue' data-role='button'>CONTINUE</button>");
-                    _pli.append(_continuebtn); 
                     $("#btn_continue").on("click",function(){
                        navigator.Backbutton.goHome();
                     }); 
