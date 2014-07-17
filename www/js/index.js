@@ -103,7 +103,7 @@ var app = {
                                   $("#header_message").text("Registering .....");
                                   var _welcomeurl = "http://push.metrofi.co.za/event/METROFI_MESSAGE_"+app.userid;
                                   //alert(_welcomeurl);
-                                  var _welcomemessage = "Welcome to MetroFi FREE WiFi - Yours to use completely free of charge as long as you support our sponsors by clicking on their messages. - Just click GO FREE to continue free internet access via our MetroFi node.<br><br>If you prefer a faster connection with NO SPONSOR NAGGING click GO PREMIUM instead and get a high speed PREMIUM MetroFi connection for just R9.99!";
+                                  var _welcomemessage = "Welcome to MetroFi FREE WiFi - Yours to use completely free of charge as long as you support our sponsors by clicking on their messages. - Click GO FREE to continue sponsored MetroFi acccess.<br><br>If you prefer a faster, uninterrupted connection, click GO PREMIUM instead and get a high speed PREMIUM MetroFi connection for just R10.00 per day!";
                                   var _welcomeparams = {};
                                   _welcomeparams.msg = _welcomemessage;
                                   _welcomeparams.title = "Registered on MetroFi";
@@ -168,7 +168,7 @@ var app = {
         _li += "<h3>:: "+e.payload.title+"</h3>";
         _li += "<div style='font-weight:normal;'>"+e.message+"</div>";
         _li += "<div class='msg-content'></div>";
-        _li += "<span style='float:right;font-size:small;font-style;italic;font-weight:light;'>Tap to visit sponsor&nbsp;</span><br>";
+        _li += "<span style='float:right;font-size:small;font-style;italic;font-weight:light;'>Tap to get sponsored&nbsp;</span><br>";
         _li += "</li>";
         var _messageblock = $(_li);
         //$("#message_list").prepend(_messageblock);
