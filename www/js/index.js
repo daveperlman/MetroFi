@@ -166,10 +166,11 @@ var app = {
         _advert.image = "http://metrofi.co.za/client/images/182.jpg";
         _li = "<li class='mf-link-"+_advertid+"'>";
         _li += "<h3>:: "+e.payload.title+"</h3>";
-        _li += "<div style='font-weight:normal;'>"+e.payload.message+"</div>";
+        _li += "<div style='font-weight:normal;'>"+e.message+"</div>";
         _li += "<div class='msg-content'></div>";
         _li += "<span style='float:right;font-size:small;font-style;italic;font-weight:light;'>Tap to get sponsored&nbsp;</span><br>";
         _li += "</li>";
+        alert(e.message);
         var _messageblock = $(_li);
         //$("#message_list").prepend(_messageblock);
         var _url = "http://metrofi.co.za?adverttitle="+e.payload.title+"&userid="+app.userid;
