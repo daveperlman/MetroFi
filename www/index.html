@@ -61,8 +61,7 @@
             //SEND APP TO BACKGRUOUND
             $(document).ready(function(){
                 //var bgMode = window.plugins.backgroundMode;           
-                $("#btn_connect, #btn_continue").on("click",function(){
-                   //navigator.app.exitApp();
+                $("#btn_connect").on("click",function(){
                    navigator.Backbutton.goHome();
                 }); 
                 $("#btn_premium").on("click",function(){
@@ -81,6 +80,9 @@
                     _premium += "</li>"; 
                     _premium = $(_premium);
                     $('#message_list').empty().append(_premium).listview('refresh');
+                    $("#btn_continue").on("click",function(){
+                       navigator.Backbutton.goHome();
+                    }); 
                 }); 
                 $("#btn_reconnect").on("click",function(){
                       $('#message_list').empty();
